@@ -1,0 +1,22 @@
+@*
+* This template takes a single argument, a String containing a
+* message to display.
+*@
+@(user: domains.User, repos: List[domains.Repository])
+
+@*
+* Call the `main` template with two arguments. The first
+* argument is a `String` with the title of the page, the second
+* argument is an `Html` object containing the body of the page.
+*@
+@main(Some(user)) {
+
+<div class="row">
+    <div class="col-sm-12">
+        @repos.map { repo =>
+            @card(repo)
+        }
+    </div>
+</div>
+
+}

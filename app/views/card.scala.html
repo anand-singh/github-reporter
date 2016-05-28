@@ -1,0 +1,68 @@
+@*
+* This template takes a single argument, a String containing a
+* message to display.
+*@
+@(repo: domains.Repository)
+
+<div class="col-md-3 col-sm-6">
+    <div class="card-container">
+        <div class="card">
+            <div class="front">
+                <div class="cover">
+                    <img src="assets/rotating_card/images/rotating_card_thumb2.png"/>
+                </div>
+                <div class="user">
+                    <img class="img-circle" src="@routes.Assets.versioned(s"images/${repo.language.getOrElse("default").toLowerCase}.png")"/>
+                </div>
+                <div class="content">
+                    <div class="main">
+                        <h3 class="name">@repo.name</h3>
+                        <p class="profession">@repo.language</p>
+                        <p class="text-center">@repo.description</p>
+                    </div>
+                    <div class="footer">
+                        <i class="fa fa-git"></i> @repo.full_name
+                    </div>
+                </div>
+            </div> <!-- end front panel -->
+            <div class="back">
+                <div class="header">
+                    <h5 class="motto"><a href="@repo.html_url" target="_blank" class="facebook">@repo.full_name</a></h5>
+                </div>
+                <div class="content">
+                    <div class="main">
+                        <h4 class="text-center">Description</h4>
+                        <p class="text-center">@repo.description</p>
+
+                        <div class="stats-container">
+                            <div class="stats">
+                                <h4>@repo.watchers</h4>
+                                <p>
+                                    Watch
+                                </p>
+                            </div>
+                            <div class="stats">
+                                <h4>@repo.forks</h4>
+                                <p>
+                                    Fork
+                                </p>
+                            </div>
+                            <div class="stats">
+                                <h4>@repo.size</h4>
+                                <p>
+                                    Size
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="text-center">
+                        Created - @repo.created_at
+                    </div>
+                </div>
+            </div> <!-- end back panel -->
+        </div> <!-- end card -->
+    </div> <!-- end card-container -->
+</div> <!-- end col sm 3 -->
